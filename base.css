@@ -1,0 +1,43 @@
+/* Shared look and responsive behavior: used by BOTH layouts */
+:root {
+  --bar-height: 70px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+header,
+main,
+footer {
+  border: 2px solid #222;
+  text-align: center;
+}
+
+header,
+footer {
+  height: var(--bar-height);
+  line-height: calc(var(--bar-height) - 4px); /* vertically centers the label */
+}
+
+main {
+  padding: 1rem;
+  border-block: none; /* header and footer already draw these edges */
+}
+
+/* Mobile: shorter header and footer */
+@media (max-width: 600px) {
+  :root {
+    --bar-height: 50px;
+  }
+
+  main {
+    padding: 0.5rem;
+  }
+}
