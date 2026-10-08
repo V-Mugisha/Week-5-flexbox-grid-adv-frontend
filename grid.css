@@ -1,5 +1,0 @@
-/* Grid layout */
-body {
-  display: grid;
-  grid-template-rows: var(--bar-height) 1fr var(--bar-height);
-}
