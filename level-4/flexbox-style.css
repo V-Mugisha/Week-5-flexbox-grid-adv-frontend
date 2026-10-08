@@ -51,6 +51,7 @@ button {
 
 
 /* header section */
+/* fixed keeps the header pinned to the top while scrolling */
 .site-header {
     position: fixed;
     top: 0;
@@ -75,6 +76,7 @@ button {
 }
 
 /* Sign in and create account buttons section */
+/* auto margin pushes the whole menu to the right edge */
 .user-menu {
     align-self: center;
     margin-left: auto;
@@ -97,6 +99,7 @@ button {
 }
 
 /* Navigation links, below header */
+/* sticky nav that sits below the fixed header and sticks when scrolling */
 .site-nav {
     position: sticky;
     top: var(--header-h);
@@ -132,6 +135,8 @@ button {
 }
 
 /* Shared sidebar styles (shared by both sidebars) */
+/* flex shorthand = grow 0, shrink 0, basis 260px so the sidebar stays a fixed width */
+/* transition makes the collapse animate smoothly */
 .sidebar {
     flex: 0 0 var(--sidebar-w);
     min-width: 0;
@@ -218,18 +223,21 @@ button {
 }
 
 /* Main content styles */
+/* 1 1 auto lets the main area grow and shrink to fill leftover space */
 .main-content {
     flex: 1 1 auto;
     min-width: 0;
     padding: clamp(1rem, 3vw, 2.5rem);
 }
 
+/* clamp() makes the size fluid, grows and shrinks with the screen */
 .page-title {
     margin-bottom: var(--gap);
     font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
 /* The section that holds all the products card */
+/* wrap drops cards to a new line, basis 280px controls how many fit per row */
 .cards {
     display: flex;
     flex-wrap: wrap;
@@ -246,6 +254,7 @@ button {
     overflow: hidden;
 }
 
+/* aspect-ratio keeps the image a set shape, object-fit crops instead of stretching */
 .card img {
     width: 100%;
     aspect-ratio: 4 / 3;
@@ -275,12 +284,14 @@ button {
     color: var(--color-primary);
 }
 
+/* auto margin pins the buttons to the bottom of the card */
 .card-actions {
     margin-top: auto;
     display: flex;
     gap: 0.5rem;
 }
 
+/* calc() adjusts the button radius from the base --radius value */
 .btn {
     flex: 1;
     border: none;
@@ -351,6 +362,7 @@ button {
     background: var(--color-primary-hover);
 }
 
+
 /* Footer section */
 .site-footer {
     background: #1f2937;
@@ -364,6 +376,7 @@ button {
     padding: 2.5rem clamp(1rem, 4vw, 3rem);
 }
 
+/* 1 1 160px makes three equal columns that wrap on small screens */
 .footer-col {
     flex: 1 1 160px;
 }
@@ -408,6 +421,7 @@ button {
 
 /* Tablet screen media query */
 @media (max-width: 767px) {
+    /* order changes the visual order without touching the html */
     .main-content {
         flex: 1 1 100%;
         order: 1;
