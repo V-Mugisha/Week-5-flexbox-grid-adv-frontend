@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopHub - Tech &amp; Lifestyle Store</title>
+
+    <!-- Flexbox CSS file -->
+    <!-- <link rel="stylesheet" href="flexbox-style.css"> -->
+    
+    <!-- Grid CSS file -->
+    <link rel="stylesheet" href="grid-style.css">
+</head>
+<body>
+    <!-- Header section -->
+    <header class="site-header">
+        <a class="logo" href="#">
+            <img src="images/html5_logo.svg" alt="ShopHub logo" width="40" height="40">
+            <span class="logo-text">ShopHub</span>
+        </a>
+        <div class="user-menu">
+            <a class="user-signin" href="#">Sign in</a>
+            <button class="create-account-btn" type="button">Create Account</button>
+        </div>
+    </header>
+
+    <!-- Navigation links -->
+    <nav class="site-nav" aria-label="Primary navigation">
+        <ul class="nav-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Deals</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Layout that contains both sidebars and the main content -->
+    <div class="layout">
+        
+        <!-- Left sideboar -->
+        <aside class="sidebar sidebar-left" id="sidebar-left">
+            <div class="sidebar-header">
+                <h2>Filters</h2>
+                <button class="collapse-btn" type="button" data-target="sidebar-left" aria-expanded="true">Collapse</button>
+            </div>
+            <div class="filter-group">
+                <h3>Category</h3>
+                <ul class="filter-list">
+                    <li><label><input type="checkbox"> Electronics</label></li>
+                    <li><label><input type="checkbox"> Audio</label></li>
+                    <li><label><input type="checkbox"> Laptops</label></li>
+                    <li><label><input type="checkbox"> Phones</label></li>
+                    <li><label><input type="checkbox"> Footwear</label></li>
+                    <li><label><input type="checkbox"> Apparel</label></li>
+                </ul>
+            </div>
+            <div class="filter-group">
+                <h3>Price</h3>
+                <ul class="filter-list">
+                    <li><label><input type="radio" name="price"> Under $50</label></li>
+                    <li><label><input type="radio" name="price"> $50 &ndash; $100</label></li>
+                    <li><label><input type="radio" name="price"> $100 &ndash; $500</label></li>
+                    <li><label><input type="radio" name="price"> Over $500</label></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main content area -->
+        <main class="main-content">
+            <h1 class="page-title">Products</h1>
+            <div class="cards">
+                <article class="card">
+                    <img src="images/headphones.jpg" alt="Aurora Wireless Headphones" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="card-title">Aurora Wireless Headphones</h3>
+                        <p class="card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <span class="card-price">$129.99</span>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" type="button">Add to Cart</button>
+                            <button class="btn btn-secondary" type="button">View</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="images/bluetooth_speaker.webp" alt="Pulse Bluetooth Speaker" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="card-title">Pulse Bluetooth Speaker</h3>
+                        <p class="card-desc">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <span class="card-price">$49.99</span>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" type="button">Add to Cart</button>
+                            <button class="btn btn-secondary" type="button">View</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="images/hp_omnibook.png" alt="HP OmniBook Laptop" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="card-title">HP OmniBook Laptop</h3>
+                        <p class="card-desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                        <span class="card-price">$899.00</span>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" type="button">Add to Cart</button>
+                            <button class="btn btn-secondary" type="button">View</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="images/ipad.jpeg" alt="iPad 10th Generation" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="card-title">iPad 10th Gen</h3>
+                        <p class="card-desc">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+                        <span class="card-price">$449.00</span>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" type="button">Add to Cart</button>
+                            <button class="btn btn-secondary" type="button">View</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="images/iphone_14_pro.jpg" alt="iPhone 14 Pro" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="card-title">iPhone 14 Pro</h3>
+                        <p class="card-desc">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+                        <span class="card-price">$999.00</span>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" type="button">Add to Cart</button>
+                            <button class="btn btn-secondary" type="button">View</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="images/jordan_shoes.jpg" alt="Air Jordan Retro Sneakers" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="card-title">Air Jordan Retro</h3>
+                        <p class="card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                        <span class="card-price">$185.00</span>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" type="button">Add to Cart</button>
+                            <button class="btn btn-secondary" type="button">View</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="images/keyboard.jpg" alt="MechKey RGB Mechanical Keyboard" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="card-title">MechKey RGB Keyboard</h3>
+                        <p class="card-desc">Tempor incididunt ut labore et dolore magna aliqua enim ad minim.</p>
+                        <span class="card-price">$79.99</span>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" type="button">Add to Cart</button>
+                            <button class="btn btn-secondary" type="button">View</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="images/shirt.webp" alt="Everyday Casual Shirt" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="card-title">Everyday Casual Shirt</h3>
+                        <p class="card-desc">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+                        <span class="card-price">$24.99</span>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" type="button">Add to Cart</button>
+                            <button class="btn btn-secondary" type="button">View</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="images/sneakers.jpg" alt="RunLite Running Sneakers" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="card-title">RunLite Sneakers</h3>
+                        <p class="card-desc">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+                        <span class="card-price">$95.00</span>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" type="button">Add to Cart</button>
+                            <button class="btn btn-secondary" type="button">View</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="images/white_shirt.webp" alt="Classic White Shirt" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="card-title">Classic White Shirt</h3>
+                        <p class="card-desc">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui.</p>
+                        <span class="card-price">$34.99</span>
+                        <div class="card-actions">
+                            <button class="btn btn-primary" type="button">Add to Cart</button>
+                            <button class="btn btn-secondary" type="button">View</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <!-- Right sidebar -->
+        <aside class="sidebar sidebar-right" id="sidebar-right">
+            <div class="sidebar-header">
+                <h2>Best Sellers</h2>
+                <button class="collapse-btn" type="button" data-target="sidebar-right" aria-expanded="true">Collapse</button>
+            </div>
+            <ul class="best-sellers">
+                <li><a href="#">iPhone 14 Pro</a><span class="price">$999.00</span></li>
+                <li><a href="#">Air Jordan Retro</a><span class="price">$185.00</span></li>
+                <li><a href="#">MechKey RGB Keyboard</a><span class="price">$79.99</span></li>
+                <li><a href="#">Classic White Shirt</a><span class="price">$34.99</span></li>
+            </ul>
+            <div class="cart-summary">
+                <h3>Your Cart</h3>
+                <p>3 items</p>
+                <p class="cart-total">$348.97</p>
+                <button class="checkout-btn" type="button">Checkout</button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer section -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <section class="footer-col">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="#">Laptops</a></li>
+                    <li><a href="#">Phones</a></li>
+                    <li><a href="#">Audio</a></li>
+                    <li><a href="#">Footwear</a></li>
+                    <li><a href="#">Apparel</a></li>
+                </ul>
+            </section>
+            <section class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Warranty</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </section>
+            <section class="footer-col">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </section>
+        </div>
+        <p class="footer-copy">&copy; 2026 ShopHub. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

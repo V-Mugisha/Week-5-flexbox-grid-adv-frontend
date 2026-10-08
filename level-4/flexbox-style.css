@@ -1,0 +1,469 @@
+/* Resetting default browser configs */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Setting CSS variables with constant values so that I don't repeat myself */
+:root {
+    --color-primary: #e44d26;
+    --color-primary-hover: #c93a1b;
+    --color-bg: #f5f6f8;
+    --color-surface: #ffffff;
+    --color-text: #1f2937;
+    --color-muted: #6b7280;
+    --color-border: #e5e7eb;
+
+    --header-h: 64px;
+    --nav-h: 48px;
+    --sidebar-w: 260px;
+    --gap: 1rem;
+    --radius: 12px;
+}
+
+body {
+    font-family: sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    padding-top: var(--header-h);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+
+/* header section */
+/* fixed keeps the header pinned to the top while scrolling */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-h);
+    display: flex;
+    gap: var(--gap);
+    padding: 0 clamp(1rem, 4vw, 3rem);
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    z-index: 100;
+}
+
+.logo {
+    align-self: center;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+/* Sign in and create account buttons section */
+/* auto margin pushes the whole menu to the right edge */
+.user-menu {
+    align-self: center;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.create-account-btn {
+    border: none;
+    background: var(--color-primary);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+}
+
+.create-account-btn:hover {
+    background: var(--color-primary-hover);
+}
+
+/* Navigation links, below header */
+/* sticky nav that sits below the fixed header and sticks when scrolling */
+.site-nav {
+    position: sticky;
+    top: var(--header-h);
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    padding: 0 clamp(1rem, 4vw, 3rem);
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    z-index: 90;
+}
+
+.nav-list {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-list a {
+    padding: 0.5rem 0;
+    color: var(--color-muted);
+    font-weight: 500;
+}
+
+.nav-list a:hover {
+    color: var(--color-primary);
+}
+
+/* Layout (with both sidebars and main content area) */
+.layout {
+    display: flex;
+    align-items: stretch;
+    min-height: calc(100vh - var(--header-h) - var(--nav-h));
+}
+
+/* Shared sidebar styles (shared by both sidebars) */
+/* flex shorthand = grow 0, shrink 0, basis 260px so the sidebar stays a fixed width */
+/* transition makes the collapse animate smoothly */
+.sidebar {
+    flex: 0 0 var(--sidebar-w);
+    min-width: 0;
+    position: relative;
+    padding: var(--gap);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-top: none;
+    transition: flex-basis 0.3s ease;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--gap);
+}
+
+.sidebar h2 {
+    font-size: 1.1rem;
+}
+
+.sidebar h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.filter-group {
+    margin-bottom: 1.25rem;
+}
+
+.filter-list li {
+    margin-bottom: 0.4rem;
+}
+
+.filter-list label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-muted);
+}
+
+.collapse-btn {
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    color: var(--color-muted);
+    border-radius: var(--radius);
+    padding: 0.25rem 0.6rem;
+    font-size: 0.8rem;
+}
+
+/* Styles for when the 'is-collapsed' class is active on the section with 'sidebar' class */
+.sidebar.is-collapsed {
+    flex-basis: 0;
+    padding: 0;
+    border: none;
+}
+
+/* Hide everything inside the sidebar when 'is-collapsed' class is active on sidebar */
+.sidebar.is-collapsed .sidebar-header h2,
+.sidebar.is-collapsed .filter-group,
+.sidebar.is-collapsed .best-sellers,
+.sidebar.is-collapsed .cart-summary {
+    display: none;
+}
+
+/* 'is-collapsed' class will be toggled by JavaScript,
+ but this is to make sure that the collapse button is still available 
+ when the sidebar is collapsed */
+.sidebar.is-collapsed .collapse-btn {
+    position: absolute;
+    top: var(--gap);
+    z-index: 2;
+    background: var(--color-surface);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-left.is-collapsed .collapse-btn {
+    right: -4rem;
+}
+
+.sidebar-right.is-collapsed .collapse-btn {
+    left: -4rem;
+}
+
+/* Main content styles */
+/* 1 1 auto lets the main area grow and shrink to fill leftover space */
+.main-content {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: clamp(1rem, 3vw, 2.5rem);
+}
+
+/* clamp() makes the size fluid, grows and shrinks with the screen */
+.page-title {
+    margin-bottom: var(--gap);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+/* The section that holds all the products card */
+/* wrap drops cards to a new line, basis 280px controls how many fit per row */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+}
+
+.card {
+    flex: 1 1 280px;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+/* aspect-ratio keeps the image a set shape, object-fit crops instead of stretching */
+.card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+.card-title {
+    font-size: 1rem;
+}
+
+.card-desc {
+    color: var(--color-muted);
+    font-size: 0.85rem;
+}
+
+.card-price {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* auto margin pins the buttons to the bottom of the card */
+.card-actions {
+    margin-top: auto;
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* calc() adjusts the button radius from the base --radius value */
+.btn {
+    flex: 1;
+    border: none;
+    border-radius: calc(var(--radius) - 4px);
+    padding: 0.5rem 0.75rem;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-hover);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+/* Righgt sidebar */
+.best-sellers {
+    margin-bottom: 1.25rem;
+}
+
+.best-sellers li {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.best-sellers .price {
+    color: var(--color-muted);
+}
+
+.cart-summary {
+    background: var(--color-bg);
+    border-radius: var(--radius);
+    padding: 1rem;
+}
+
+.cart-total {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0.25rem 0 0.75rem;
+}
+
+.checkout-btn {
+    width: 100%;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: calc(var(--radius) - 4px);
+    padding: 0.6rem;
+    font-weight: 600;
+}
+
+.checkout-btn:hover {
+    background: var(--color-primary-hover);
+}
+
+
+/* Footer section */
+.site-footer {
+    background: #1f2937;
+    color: #e5e7eb;
+}
+
+.footer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2.5rem clamp(1rem, 4vw, 3rem);
+}
+
+/* 1 1 160px makes three equal columns that wrap on small screens */
+.footer-col {
+    flex: 1 1 160px;
+}
+
+.footer-col h3 {
+    margin-bottom: 0.75rem;
+    color: #fff;
+}
+
+.footer-col li {
+    margin-bottom: 0.4rem;
+}
+
+.footer-col a {
+    color: #9ca3af;
+}
+
+.footer-col a:hover {
+    color: var(--color-primary);
+}
+
+/* Copyright section in the footer */
+.footer-copy {
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid #374151;
+    color: #9ca3af;
+    font-size: 0.85rem;
+}
+
+/* Large screen media query */
+@media (max-width: 1023px) {
+    .layout {
+        flex-wrap: wrap;
+    }
+
+    .sidebar-right {
+        flex: 1 1 100%;
+        border-top: 1px solid var(--color-border);
+    }
+}
+
+/* Tablet screen media query */
+@media (max-width: 767px) {
+    /* order changes the visual order without touching the html */
+    .main-content {
+        flex: 1 1 100%;
+        order: 1;
+    }
+
+    .sidebar-left {
+        flex: 1 1 100%;
+        order: 2;
+        border-top: 1px solid var(--color-border);
+    }
+
+    .sidebar-right {
+        order: 3;
+    }
+}
+
+/* Mobile screen media query */
+@media (max-width: 479px) {
+    .site-header {
+        padding: 0 1rem;
+    }
+
+    .user-menu {
+        gap: 0.75rem;
+    }
+
+    .site-nav {
+        position: static;
+        height: auto;
+        padding: 0.5rem 1rem;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .card {
+        flex-basis: 100%;
+    }
+
+    .footer-grid {
+        flex-direction: column;
+    }
+}
