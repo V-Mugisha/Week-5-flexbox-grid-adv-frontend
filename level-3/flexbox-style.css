@@ -33,9 +33,9 @@ header{
         flex-wrap: wrap;
         list-style-type: none;
         margin: 0;
-        gap: 5%;
+        padding: 0;
+        gap: 10px;
         display: flex;
-        flex-direction: row;
     }
 }
 
@@ -46,18 +46,21 @@ header{
     flex-grow: 1;
 }
 
-.content main{
+.content main,
+.left-sidebar,
+.right-sidebar {
     padding: 15px;
-    width:60%;
     text-align: center;
+}
+
+.content main{
+    width:60%;
     background-color: #637760; 
 }
 
 .left-sidebar, .right-sidebar{
-    padding: 15px;
     width:20%;
     background-color: #30b6a0;
-    text-align: center;
 }
 
 footer{
@@ -70,9 +73,8 @@ footer{
 
 
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 600px) and (max-width: 1024px) {
     .content {
-        flex-direction: row;
         flex-wrap: wrap;
     }
 
@@ -90,7 +92,7 @@ footer{
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 599px) {
     .content {
         flex-direction: column;
     }
