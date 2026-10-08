@@ -2,43 +2,110 @@
     box-sizing: border-box;
 }
 
+
 body {
+    margin: 0;
+    background-color: #b3d2ef;
+    
+}
+
+header{
+    background-color: #f2e2b5;
+    text-align: center;
+    font-size: 20px;
+}
+.container{
     display: flex;
     flex-direction: column;
-    font-family: Arial, sans-serif;
-    background-color: #efe8e8;
-    padding: 20px;
+    min-height: 100vh;
+  
 }
 
-header {
-    background-color: #73a4d1;
-    padding: 20px;
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-nav {
-    background-color: #2da8a8;
+.container header{
     padding: 10px;
-    text-align: center;
 }
 
-.container {
+.container nav{
+    background-color: #936d8c;
+    padding: 10px;
+    
+    ul{
+        flex-wrap: wrap;
+        list-style-type: none;
+        margin: 0;
+        gap: 5%;
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+
+
+.content{
     display: flex;
-    flex: 1;
-    gap: 10px;
-    padding: 10px;
+    flex-grow: 1;
 }
 
-.left-sidebar, .right-sidebar {
-    background-color: #f4f4f4;
-    flex: 1;
-    padding: 20px;
+.content main{
+    padding: 15px;
+    width:60%;
+    text-align: center;
+    background-color: #637760; 
 }
-main {
-  flex: 3;
-  background: #f4f4f4;
-  text-align: center;
-  padding: 20px;
+
+.left-sidebar, .right-sidebar{
+    padding: 15px;
+    width:20%;
+    background-color: #30b6a0;
+    text-align: center;
+}
+
+footer{
+    padding: 10px;
+    width: 100%;
+    background-color: #cc9696;
+    text-align: center;
+    font-size: 15px;
+}
+
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .content {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .content main {
+        width: 100%;
+        order: -1;
+    }
+
+    .left-sidebar,
+    .right-sidebar {
+        width: 50%;
+    }
+    .left-sidebar {
+        background-color: #e5d5d5;
+    }
+}
+
+@media (max-width: 767px) {
+    .content {
+        flex-direction: column;
+    }
+    main {
+        order: -1;
+    }
+    .content main,
+    .left-sidebar,
+    .right-sidebar {
+        width: 100%;
+    }
+    .left-sidebar {
+        background-color: #e5d5d5;
+    }
+    .container nav ul {
+        flex-direction: column;
+    }
 }
